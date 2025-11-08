@@ -1,2 +1,2 @@
-# Attendance
-latest version
+# Smart Attendance System Using InsightFace
+
