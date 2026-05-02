@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
 class ApiService {
-  static const String baseUrl = "http://10.201.13.42:5000";
+  static const String baseUrl = "http://192.168.0.4:5000";
 
   static Future<Map<String, dynamic>> recognizeFace(File file) async {
     final uri = Uri.parse("$baseUrl/recognize");
@@ -40,6 +40,30 @@ class ApiService {
       return jsonDecode(response.body);
     } else {
       throw Exception("Error saving attendance");
+    }
+  }
+
+  // New method to save attendance with actual roll numbers/USNs
+  static Future<Map<String, dynamic>> saveAttendanceByUSN(
+    List<String> rollNumbers,
+    String section,
+    String subject,
+  ) async {
+    final uri = Uri.parse("$baseUrl/mark_attendance_usn");
+    final response = await http.post(
+      uri,
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "roll_numbers": rollNumbers,
+        "section": section,
+        "subject": subject,
+        "date": DateTime.now().toIso8601String(),
+      }),
+    );
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception("Error saving attendance by USN");
     }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74124387614",
+    "project_id": "dum-check",
+    "storage_bucket": "dum-check.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74124387614:android:ec47ec7edcaaed48a4950f",
+        "android_client_info": {
+          "package_name": "com.example.attendance_interface"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6Eoj3SZCnUIrmviP550q51J-IUQoZWUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
